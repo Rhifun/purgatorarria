@@ -1,10 +1,13 @@
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace purgatorrariamod.Items
 {
-	public class statstick : ModItem
+	public class StatStick : ModItem
 	{
 		public override void SetDefaults()
 		{
@@ -25,9 +28,16 @@ namespace purgatorrariamod.Items
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.DirtBlock, 10);
+			recipe.AddIngredient<MysticBranch>();
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
+		}
+
+		public override void ModifyTooltips(List<TooltipLine> tooltips) {
+			var line = new TooltipLine(Mod, "Face", "gaming") {
+				OverrideColor = new Color(100, 100, 255)
+			};
+			tooltips.Add(line);
 		}
 	}
 }
