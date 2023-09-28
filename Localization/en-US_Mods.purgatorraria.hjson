@@ -1,0 +1,17 @@
+# This file will automatically update with entries for new content after a build and reload
+
+Items: {
+	statstick: {
+		DisplayName: statstick
+		Tooltip: statstick
+	}
+}
+
+od: {
+	Items: {
+		statstick: {
+			DisplayName: statstick
+			Tooltip: ""
+		}
+	}
+}
