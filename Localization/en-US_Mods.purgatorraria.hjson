@@ -21,5 +21,23 @@ od: {
 				$parentVal: ""
 			}
 		}
+
+		PotatoPeeler: {
+			Tooltip: {
+				$parentVal: ""
+			}
+
+			DisplayName: {
+				$parentVal: Potato Peeler
+			}
+		}
+	}
+
+	Projectiles: {
+		Potato: {
+			DisplayName: {
+				$parentVal: Potato
+			}
+		}
 	}
 }
