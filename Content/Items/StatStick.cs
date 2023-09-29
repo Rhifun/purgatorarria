@@ -5,7 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace purgatorrariamod.Items
+namespace purgatorrariamod.Content.Items
 {
 	public class StatStick : ModItem
 	{

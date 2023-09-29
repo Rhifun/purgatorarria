@@ -4,8 +4,9 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using purgatorrariamod.Content.Rarities;
 
-namespace purgatorrariamod.Items
+namespace purgatorrariamod.Content.Items
 {
 	public class MysticBranch : ModItem
 	{
@@ -18,18 +19,18 @@ namespace purgatorrariamod.Items
 		}
 
 		public override void SetDefaults() {
-			Item.width = 18;
-			Item.height = 18;
-			Item.maxStack = Item.CommonMaxStack;
+			Item.width = 18; // Item weight
+			Item.height = 18; // Item height
+			Item.maxStack = Item.CommonMaxStack; // Makes the max item stack = global max item stack
 			Item.value = 1000; // Makes the item worth 1 gold.
-			Item.rare = ItemRarityID.Orange;
+			Item.rare = ModContent.RarityType<BranchRarity>(); // Implements custom rarity
 		}
 
 		public override void PostUpdate() {
 			Lighting.AddLight(Item.Center, Color.WhiteSmoke.ToVector3() * 0.55f * Main.essScale); // Makes this item glow when thrown out of inventory.
 		}
 
-		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
+		// Craft 1 dirt block into 25 of these at a workbench for testing purposes
 		public override void AddRecipes() {
 			Recipe recipe = Recipe.Create(ModContent.ItemType<Items.MysticBranch>(), 25);
 			recipe.AddIngredient(ItemID.DirtBlock, 1);
@@ -37,9 +38,10 @@ namespace purgatorrariamod.Items
 			recipe.Register();
 		}
 
+		// Add funny tooltip
         public override void ModifyTooltips(List<TooltipLine> tooltips) {
 			var line = new TooltipLine(Mod, "Face", "gaming") {
-				OverrideColor = Main.DiscoColor
+				OverrideColor = new Color(150, 150, 230)
 			};
 			tooltips.Add(line);
 		}
